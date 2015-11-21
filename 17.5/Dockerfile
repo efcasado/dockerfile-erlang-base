@@ -11,5 +11,6 @@ COPY etc/yum.repos.d/ /etc/yum.repos.d/
 
 ## Install Erlang
 RUN yum install -y \
+        which      \
         erlang-17.5 && \
     yum clean all
