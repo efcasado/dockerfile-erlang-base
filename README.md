@@ -18,6 +18,17 @@ For example, Erlang/OTP R16B03-1 and 17.5 become 16.3.1 and
 17.5.0, respectively.
 
 
+### Supported Erlang/OTP Versions
+
+| Erlang/OTP Version | Tag                |
+|:------------------:|:------------------:|
+| 18.1               | erlang-base:18.1.0 |
+| 18.0               | erlang-base:18.0.0 |
+| 17.5               | erlang-base:17.5.0 |
+| 17.3               | erlang-base:17.3.0 |
+| 17.1               | erlang-base:17.1.0 |
+
+
 ### Ports
 
 | Port Number | Protocol | Description                                                  |
