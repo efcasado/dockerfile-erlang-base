@@ -17,7 +17,7 @@ RUN yum install -y                        \
     mkdir -p /opt/erlang               && \
     git clone https://github.com/erlang/otp /opt/erlang && \
     cd /opt/erlang                     && \
-    git checkout OTP_R15B03-1           && \
+    git checkout OTP_R15B03           && \
     ./otp_build autoconf               && \
     ./configure --without-wx --without-debugger --without-observer --without-javac --without-odbc     && \
     make                               && \

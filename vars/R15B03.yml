@@ -1,5 +1,5 @@
 ---
 yum_packages: "gcc-c++ openssl-devel"
 git_repo: "https://github.com/erlang/otp"
-git_tag: "OTP_R15B03-1"
+git_tag: "OTP_R15B03"
 configure_opts: "--without-wx --without-debugger --without-observer --without-javac --without-odbc"
