@@ -24,6 +24,7 @@ R16, 17.5, 18.0, ...).
 | 17.5               | erlang-base:17.5     |
 | 17.1               | erlang-base:17.1     |
 | R16B03-1           | erlang-base:R16B03-1 |
+| R15B03-1           | erlang-base:R15B03-1 |
 
 
 ### Ports
