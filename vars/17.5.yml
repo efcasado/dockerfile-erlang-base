@@ -1,2 +1,5 @@
 ---
-erlang_version: "17.5"
+yum_packages: "gcc-c++ openssl-devel"
+git_repo: "https://github.com/erlang/otp"
+git_tag: "OTP-17.5"
+configure_opts: "--without-wx --without-debugger --without-observer --without-et --without-javac --without-odbc"

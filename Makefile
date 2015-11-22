@@ -15,7 +15,6 @@ ENV      ?= dev
 VERSIONS ?= 18.1 \
 		    18.0 \
 		    17.5 \
-		    17.3 \
 		    17.1
 
 
@@ -61,7 +60,6 @@ all: | build test
 build: $(BUILD_TARGETS)
 
 bld-%: gen-%
-	cp -r files/* $*
 	docker build -t $(call TAG,$*) $*
 
 gen-%:

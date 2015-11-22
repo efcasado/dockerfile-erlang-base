@@ -12,21 +12,17 @@ docker run --rm -it efcasado/erlang-base:<version> erl
 ```
 
 where `<version>` is the Erlang/OTP version you want to use (e.g.
-R16, 17.5, 18.0, ...). Note that Erlang/OTP versions have been
-converted to comply with [semantic versioning](http://semver.org/).
-For example, Erlang/OTP R16B03-1 and 17.5 become 16.3.1 and
-17.5.0, respectively.
+R16, 17.5, 18.0, ...).
 
 
 ### Supported Erlang/OTP Versions
 
-| Erlang/OTP Version | Docker Tag         |
-|:------------------:|:------------------:|
-| 18.1               | erlang-base:18.1.0 |
-| 18.0               | erlang-base:18.0.0 |
-| 17.5               | erlang-base:17.5.0 |
-| 17.3               | erlang-base:17.3.0 |
-| 17.1               | erlang-base:17.1.0 |
+| Erlang/OTP Version | Docker Tag       |
+|:------------------:|:----------------:|
+| 18.1               | erlang-base:18.1 |
+| 18.0               | erlang-base:18.0 |
+| 17.5               | erlang-base:17.5 |
+| 17.1               | erlang-base:17.1 |
 
 
 ### Ports

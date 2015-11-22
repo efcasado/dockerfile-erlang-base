@@ -6,11 +6,27 @@
 FROM       centos:6
 MAINTAINER Enrique Fernandez <enrique.fernandez@erlang-solutions.com>
 
-## Add Erlang-Solutions RPM repository
-COPY etc/yum.repos.d/ /etc/yum.repos.d/
-
-## Install Erlang
-RUN yum install -y \
-        which      \
-        erlang-17.5 && \
+# Install Erlang/OTP
+RUN yum install -y                        \
+        autoconf                          \
+        gcc                               \
+        git                               \
+        ncurses-devel                     \
+        tar                               \
+        gcc-c++ openssl-devel               && \
+    mkdir -p /opt/erlang               && \
+    git clone https://github.com/erlang/otp /opt/erlang && \
+    cd /opt/erlang                     && \
+    git checkout OTP-17.5           && \
+    ./otp_build autoconf               && \
+    ./configure --without-wx --without-debugger --without-observer --without-et --without-javac --without-odbc     && \
+    make                               && \
+    make install                       && \
+    rm -rf /opt/erlang                 && \
+    yum remove -y                         \
+        autoconf                          \
+        gcc                               \
+        ncurses-devel                     \
+        tar                               \
+        gcc-c++ openssl-devel               && \
     yum clean all
