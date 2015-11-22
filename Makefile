@@ -74,6 +74,6 @@ DOCKER_OPTS := --rm -it
 test-%:
 	@echo "[TEST] $*"
 	@case $* in \
-		R*) $(DOCKER) run $(DOCKER_OPTS) efcasado/erlang:$* erl -noshell -eval "\"$*\" = erlang:system_info(otp_release)." -s init stop ;; \
-		*) $(DOCKER) run $(DOCKER_OPTS) efcasado/erlang:$* erl -noshell -eval "{ok, <<\"$*\\n\">>} = file:read_file(filename:join([code:root_dir(), \"releases\", erlang:system_info(otp_release), \"OTP_VERSION\"]))." -s init stop ;; \
+		R*) $(DOCKER) run $(DOCKER_OPTS) erlang-base:$* erl -noshell -eval "\"$*\" = erlang:system_info(otp_release)." -s init stop ;; \
+		*) $(DOCKER) run $(DOCKER_OPTS) erlang-base:$* erl -noshell -eval "{ok, <<\"$*\\n\">>} = file:read_file(filename:join([code:root_dir(), \"releases\", erlang:system_info(otp_release), \"OTP_VERSION\"]))." -s init stop ;; \
 	esac
