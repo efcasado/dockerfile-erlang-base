@@ -1,0 +1,30 @@
+###========================================================================
+### File: Dockerfile
+###
+### Author(s): Enrique Fernandez <enrique.fernandez@erlang-solutions.com>
+###========================================================================
+FROM       centos:6
+MAINTAINER Enrique Fernandez <enrique.fernandez@erlang-solutions.com>
+
+# Install Erlang/OTP
+RUN yum install -y                        \
+        autoconf                          \
+        gcc                               \
+        git                               \
+        ncurses-devel                     \
+        gcc-c++ openssl-devel tar               && \
+    mkdir -p /opt/erlang               && \
+    git clone https://github.com/erlang/otp /opt/erlang && \
+    cd /opt/erlang                     && \
+    git checkout OTP_R16B03-1           && \
+    ./otp_build autoconf               && \
+    ./configure --without-wx --without-debugger --without-observer --without-javac --without-odbc     && \
+    make                               && \
+    make install                       && \
+    rm -rf /opt/erlang                 && \
+    yum remove -y                         \
+        autoconf                          \
+        gcc                               \
+        ncurses-devel                     \
+        gcc-c++ openssl-devel tar               && \
+    yum clean all

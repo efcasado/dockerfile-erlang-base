@@ -17,12 +17,13 @@ R16, 17.5, 18.0, ...).
 
 ### Supported Erlang/OTP Versions
 
-| Erlang/OTP Version | Docker Tag       |
-|:------------------:|:----------------:|
-| 18.1               | erlang-base:18.1 |
-| 18.0               | erlang-base:18.0 |
-| 17.5               | erlang-base:17.5 |
-| 17.1               | erlang-base:17.1 |
+| Erlang/OTP Version | Docker Tag           |
+|:------------------:|:--------------------:|
+| 18.1               | erlang-base:18.1     |
+| 18.0               | erlang-base:18.0     |
+| 17.5               | erlang-base:17.5     |
+| 17.1               | erlang-base:17.1     |
+| R16B03-1           | erlang-base:R16B03-1 |
 
 
 ### Ports
