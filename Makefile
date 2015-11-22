@@ -63,7 +63,7 @@ build: $(BUILD_TARGETS)
 bld-%: gen-%
 	docker build -t $(call TAG,$*) $*
 
-gen-%:
+gen-%: %
 	rm -rf $*
 	mkdir -p $*
 	mustache vars/$*.yml Dockerfile.in > $*/Dockerfile
