@@ -12,7 +12,8 @@ RUN yum install -y                        \
         gcc                               \
         git                               \
         ncurses-devel                     \
-        gcc-c++ openssl-devel tar               && \
+        tar                               \
+        gcc-c++ openssl-devel               && \
     mkdir -p /opt/erlang               && \
     git clone https://github.com/erlang/otp /opt/erlang && \
     cd /opt/erlang                     && \
@@ -26,5 +27,6 @@ RUN yum install -y                        \
         autoconf                          \
         gcc                               \
         ncurses-devel                     \
-        gcc-c++ openssl-devel tar               && \
+        tar                               \
+        gcc-c++ openssl-devel               && \
     yum clean all
