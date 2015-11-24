@@ -1,5 +1,7 @@
 Base Erlang dockerfile
 ======================
+[![Build Status](https://travis-ci.org/efcasado/dockerfile-erlang-base.svg?branch=master)](https://travis-ci.org/efcasado/dockerfile-erlang-base)
+
 
 ### Get Started
 
