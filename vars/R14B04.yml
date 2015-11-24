@@ -1,0 +1,5 @@
+---
+yum_packages: "gcc-c++ openssl-devel ed"
+git_repo: "https://github.com/erlang/otp"
+git_tag: "OTP_R14B04"
+configure_opts: "--without-wx --without-debugger --without-observer --without-javac --without-odbc"
