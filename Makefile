@@ -61,12 +61,13 @@ all: | build test
 
 build: $(BUILD_TARGETS)
 
-bld-%: gen-%
+bld-%: %/Dockerfile
 	docker build -t $(call TAG,$*) $*
 
-gen-%: %
-	rm -rf $*
-	mkdir -p $*
+$(VERSIONS):
+	mkdir -p $@
+
+%/Dockerfile: %
 	mustache vars/$*.yml Dockerfile.in > $*/Dockerfile
 
 test: $(TEST_TARGETS)
