@@ -25,14 +25,15 @@ VERSIONS ?= 18.1     \
 ## Macros
 ##=========================================================================
 
-PROJECT       := erlang-base
+PROJECT          := erlang-base
 
-BUILD_TARGETS := $(patsubst %,bld-%,$(VERSIONS))
-TEST_TARGETS  := $(patsubst %,test-%,$(VERSIONS))
+GENERATE_TARGETS := $(patsubst %,%/Dockerfile,$(VERSIONS))
+BUILD_TARGETS    := $(patsubst %,build-%,$(VERSIONS))
+TEST_TARGETS     := $(patsubst %,test-%,$(VERSIONS))
 
-GIT_TAG       := $(shell git describe --tags 2> /dev/null)
-GIT_BRANCH    := $(shell git rev-parse --abbrev-ref HEAD 2> /dev/null)
-GIT_COMMIT    := $(shell git rev-parse --short HEAD 2> /dev/null)
+GIT_TAG          := $(shell git describe --tags 2> /dev/null)
+GIT_BRANCH       := $(shell git rev-parse --abbrev-ref HEAD 2> /dev/null)
+GIT_COMMIT       := $(shell git rev-parse --short HEAD 2> /dev/null)
 
 ifeq ($(ENV),snapshot)
 VERSION       := $(GIT_BRANCH)-git$(GIT_COMMIT)
@@ -58,11 +59,17 @@ DOCKER=$(shell which docker)
 ## Targets
 ##=========================================================================
 
-all: | build test
+all: | generate build test
+
+generate: $(GENERATE_TARGETS)
+
+%/Dockerfile:
+	mkdir -p $*
+	mustache vars/$*.yml Dockerfile.in > $@
 
 build: $(BUILD_TARGETS)
 
-bld-%: gen-%
+build-%:
 	docker build -t $(call TAG,$*) $*
 
 $(VERSIONS):
